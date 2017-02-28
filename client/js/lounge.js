@@ -1274,10 +1274,10 @@ $(function() {
 
 	chat.on("click", ".show-more-button", function() {
 		var self = $(this);
-		var count = self.parent().next(".messages").children().length;
+		var lastMessageId = self.parent().next(".messages").children(".msg:not(.condensed)")[0].id;
 		socket.emit("more", {
 			target: self.data("id"),
-			count: count
+			lastId: lastMessageId
 		});
 	});
 
